@@ -7,6 +7,7 @@ package gravityprinterouter;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -16,7 +17,7 @@ public class GPOPanel extends JPanel{
     
     
     JLabel result1;
-    
+    JTextArea gimmegimme;
     
     public GPOPanel(){
         
@@ -25,9 +26,11 @@ public class GPOPanel extends JPanel{
         
        result1 = new JLabel("<html><h2><font color='white'>mass of center: </font><font color='red'>" + 8.6 + "</font><h2></html>");
         result1.setBounds(60, 60, 320, 360);
-        add(result1);
+        //add(result1);
         
-        
+        gimmegimme = new JTextArea();
+        gimmegimme.setBounds(160, 160, 720, 660);
+        add(gimmegimme);
         
        
         

@@ -31,11 +31,40 @@ public class GravityPrinterOuter {
         static double uniGravConst = ugc * powerOfTen(powerOfTen);
         //double uniGravConst = 1;
         static double gravitationalAttraction = (uniGravConst * m1 * m2) / (distance * distance);
-      static GPOFrame gf;
+      public static GPOFrame gf;
+      
+      
+      
+      
+      
+      
+   ///////////////////////////////////////////////////////////////////    
+        ////////////////////////////////////////////////////////////////////////////////////////    
+      
       
       
         public static void main(String[] args) {           
-        randomizeInputs();
+    
+            gf = new GPOFrame();
+            
+            for(int i = 0; i < 5; i++){
+                //doStuff();
+                searchForSuitableGravitationalForce();
+            }
+   
+            
+            
+            }  // end main
+  
+ ///////////////////////////////////////////////////////////////////    
+        ////////////////////////////////////////////////////////////////////////////////////////
+        
+   
+   public static void doStuff(){   
+       
+       
+       
+          randomizeInputs();
         distance = Math.sqrt((dx-x)*(dx-x)+(dy-y)*(dy-y));
         uniGravConst = ugc * powerOfTen(powerOfTen);
         //double uniGravConst = 1;
@@ -44,9 +73,7 @@ public class GravityPrinterOuter {
        // gf = new GPOFrame(); 
             
             
-   System.out.println("the planet with a mass of " + df2.format(m2) + " is at a distance of " + df2.format(distance)+ " map units");
-                
-                
+                System.out.println("the planet with a mass of " + df2.format(m2) + " is at a distance of " + df2.format(distance)+ " map units");
                 System.out.println("Your ship with a mass of " + df2.format(m1) + " is at (" + (int)x + "," + (int)y + "), ");
                 System.out.println("the planet with a mass of " + df2.format(m2) + " is at (" + (int)dx + "," + (int)dy + ")");
                 System.out.println("Using a UGC of "+ugc+" * 10^" + powerOfTen + ", there is a ");
@@ -57,7 +84,21 @@ public class GravityPrinterOuter {
                 // need to calculate force to orbit planet from ships position
                 System.out.println("to orbit the planet, x = (getXOrbitThrust()) y = (getYOrbitThrust())");
           
-          
+                
+                
+                 gf.gp.gimmegimme.append("the planet with a mass of " + df2.format(m2) + " is at a distance of " + df2.format(distance)+ " map units\n");
+                 gf.gp.gimmegimme.append("Your ship with a mass of " + df2.format(m1) + " is at (" + (int)x + "," + (int)y + "), \n");
+                gf.gp.gimmegimme.append("the planet with a mass of " + df2.format(m2) + " is at (" + (int)dx + "," + (int)dy + ")\n");
+                 gf.gp.gimmegimme.append("Using a UGC of "+ugc+" * 10^" + powerOfTen + ", there is a ");
+               
+                 gf.gp.gimmegimme.append("gravitational force of " + df2.format(gravitationalAttraction) + " at " + df2.format(getAngleInDegrees(x, y, dx, dy)) + " degrees.\n Force on x is = " + df2.format(xForce) + ", on y is = " + df2.format(yForce)+"\n");
+                 
+                // need to calculate force to orbit planet from ships position
+                 gf.gp.gimmegimme.append("to orbit the planet, x = (getXOrbitThrust()) y = (getYOrbitThrust())");
+                 gf.gp.gimmegimme.append("\n  \n");
+                
+                
+         
          // printAllAngleValues(); 
         
         
@@ -122,23 +163,31 @@ value = ((double) Math.round(value * 1000)) / 1000;
    
    */
    
-   
-   
-    }  // end main
-  
- ///////////////////////////////////////////////////////////////////    
-        ////////////////////////////////////////////////////////////////////////////////////////
+    
+       
+       
+       
+       
+   }  // end do stuff
+        
+        
+        
+        
+        
+        
         
         
   public static void searchForSuitableGravitationalForce(){
-            boolean winnerWinner = true;
+            boolean winnerWinner = false;
        
         
       int runAmount = 1000000;
         
      int foundInThisManyTries = 0;
      
-          for(int i = 1; i < runAmount+1; i++){ 
+     
+     while(!winnerWinner){
+          //for(int i = 1; i < runAmount+1; i++){ 
        System.out.println();
         foundInThisManyTries++;
              randomizeInputs();
@@ -155,14 +204,14 @@ value = ((double) Math.round(value * 1000)) / 1000;
              
              if(gravitationalAttraction < 1.05 && gravitationalAttraction > .993 || gravitationalAttraction > -1.05 && gravitationalAttraction < -.993){
                 
-                 i = runAmount+1;
+                // i = runAmount+1;
                   winnerWinner = true;
              }
          
-          }
+       
+             }
           
-          
-          winnerWinner = true;
+        //  winnerWinner = true;
           
           
           
@@ -179,7 +228,19 @@ value = ((double) Math.round(value * 1000)) / 1000;
                 double xForce = getXForce(getAngleInDegrees(x, y, dx, dy),gravitationalAttraction);
                 double yForce = getYForce(getAngleInDegrees(x, y, dx, dy),gravitationalAttraction);
                 System.out.println("gravitational force of " + df2.format(gravitationalAttraction) + " at " + df2.format(getAngleInDegrees(x, y, dx, dy)) + " degrees.\n Force on x is = " + df2.format(xForce) + ", on y is = " + df2.format(yForce));
-                    
+                
+                gf.gp.gimmegimme.append("SOLUTION FOUND! (" + foundInThisManyTries + " tries)");
+                gf.gp.gimmegimme.append("the planet with a mass of " + df2.format(m2) + " is at a distance of " + df2.format(distance)+ " map units\n");
+                 gf.gp.gimmegimme.append("Your ship with a mass of " + df2.format(m1) + " is at (" + (int)x + "," + (int)y + "), \n");
+                gf.gp.gimmegimme.append("the planet with a mass of " + df2.format(m2) + " is at (" + (int)dx + "," + (int)dy + ")\n");
+                 gf.gp.gimmegimme.append("Using a UGC of "+ugc+" * 10^" + powerOfTen + ", there is a ");
+               
+                 gf.gp.gimmegimme.append("gravitational force of " + df2.format(gravitationalAttraction) + " at " + df2.format(getAngleInDegrees(x, y, dx, dy)) + " degrees.\n Force on x is = " + df2.format(xForce) + ", on y is = " + df2.format(yForce)+"\n");
+                 
+                // need to calculate force to orbit planet from ships position
+                 gf.gp.gimmegimme.append("to orbit the planet, x = (getXOrbitThrust()) y = (getYOrbitThrust())");
+                 gf.gp.gimmegimme.append("\n  \n");
+                 
              }
         
         
