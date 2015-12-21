@@ -25,7 +25,7 @@ public class GravityPrinterOuter {
       static   double m1 = 597.2;
       static   double m2 = 7.34*multiplier*multiplier;
       static   int powerOfTen = -11;
-      static int range = 1000;
+      static int range = 100;
     static double ugc = 6.6780;
         static double distance = Math.sqrt((dx-x)*(dx-x)+(dy-y)*(dy-y));
         static double uniGravConst = ugc * powerOfTen(powerOfTen);
@@ -404,7 +404,7 @@ System.out.print("gravitational force of " + df2.format(gravity) + " at " + df2.
       dy = (Math.random() * range) - (range/2);
       m1 = 10;//(Math.random() * 1000);//  if we use (0,0) and the ship's weight, i think this becomes a calc for orbits, if we apply force perpendicular to gravity? need to find out
       m2 = (Math.random() * 10000);
-      powerOfTen = (int)(Math.random() * 40) - 20;
+      powerOfTen = (int)(Math.random() * 20) - 10;
       
       
   } // end randomize inputs     
