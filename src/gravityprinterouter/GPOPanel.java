@@ -24,9 +24,9 @@ public class GPOPanel extends JPanel{
         super();
         setLayout(null);
         
-       result1 = new JLabel("<html><h2><font color='white'>mass of center: </font><font color='red'>" + 8.6 + "</font><h2></html>");
-        result1.setBounds(60, 60, 320, 360);
-        //add(result1);
+       result1 = new JLabel("<html><h2><font color='blue'> searching for a gravitational force between: </font><font color='red'>" + .993 + "</font><font color='blue'> and </font><font color='red'>" + 1.007 + "</font><h2></html>");
+        result1.setBounds(160, 40, 720, 160);
+        add(result1);
         
         gimmegimme = new JTextArea();
         gimmegimme.setBounds(160, 160, 720, 660);
