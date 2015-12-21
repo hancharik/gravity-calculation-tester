@@ -202,7 +202,7 @@ value = ((double) Math.round(value * 1000)) / 1000;
              
             
              
-             if(gravitationalAttraction < 1.05 && gravitationalAttraction > .993 || gravitationalAttraction > -1.05 && gravitationalAttraction < -.993){
+             if(gravitationalAttraction < 1.007 && gravitationalAttraction > .993 || gravitationalAttraction > -1.007 && gravitationalAttraction < -.993){
                 
                 // i = runAmount+1;
                   winnerWinner = true;
